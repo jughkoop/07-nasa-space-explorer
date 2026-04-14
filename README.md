@@ -1,11 +1,41 @@
-# Project 7: NASA API - Space Explorer App
-NASA releases a new "Astronomy Picture of the Day" (APOD) every day—spotlighting breathtaking images of galaxies, stars, planets, and more.
+# NASA Space Explorer
 
-Your task is to build an interactive web app that fetches and displays these photos using [NASA's API](https://api.nasa.gov/). Users will pick a date range and instantly view stunning photos from across the cosmos, along with titles and descriptions.
+NASA Space Explorer is a web app that lets users browse NASA Astronomy Picture of the Day (APOD) images by date range.
 
-You'll get to use your skills to build something that's actually connected to real-world data from one of the most iconic organizations in the world.
+Users can:
+- Choose a start date and end date
+- Fetch all images in that range
+- Pick a random image with the Surprise Me button
+- Open a modal to view larger images and detailed explanations
 
-## Starter Files
-- The provided files include a NASA logo, date inputs, a button, a placeholder for your gallery, and basic layout and styling to help you get started.
-- It also includes built-in logic (in `dateRange.js`) to handle the valid APOD date range—from June 16, 1995 to today. No need to modify it.
-- All your custom JavaScript should go in `script.js`. That's where you'll write the code that fetches data and displays your gallery.
+The app uses real data from NASA's APOD API: https://api.nasa.gov/
+
+## Technologies Used
+
+- HTML5 for semantic page structure
+- CSS3 for responsive layout and styling
+- JavaScript (ES6+) for app logic and DOM updates
+- Fetch API for making HTTP requests to NASA APOD
+
+## What I Learned
+
+This project helped me learn how to get and use data from an API in a real app.
+
+Key things I practiced:
+- Building a request URL with query parameters (start date, end date, API key)
+- Using async/await to handle asynchronous API calls
+- Converting API responses to JSON and validating returned data
+- Displaying fetched data dynamically in the DOM
+- Handling loading states, empty results, and error states
+
+## Challenge I Solved: Rate Limits
+
+One challenge was that the NASA API can sometimes return temporary errors (especially when rate limits are reached).
+
+To solve this, I improved the request flow by:
+- Adding retry logic for temporary failures (like 429 and server errors)
+- Using short delays between retries (backoff)
+- Showing clear, user-friendly error messages
+- Keeping the UI responsive by disabling buttons during requests and restoring them after
+
+This made the app more reliable and gave users better feedback when the API is busy.
